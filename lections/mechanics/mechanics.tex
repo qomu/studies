@@ -1,0 +1,295 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[a4paper,12pt]{report}
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+		
+%Math packages
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+\usepackage{icomma}
+\setcounter{MaxMatrixCols}{20}
+%Math packages
+
+%SetFonts
+\usepackage{euscript}	 % Шрифт Евклид
+\usepackage{mathrsfs} % Красивый матшрифт
+\usepackage{dsfont} % Жирный шрифт для множеств чисел
+%\usepackage{wasysym} % Для всяких символов
+\usepackage{ stmaryrd } %Left \mapsto
+\usepackage[T1, T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[english, russian]{babel}
+%SetFonts
+
+%Graphics
+\usepackage{graphicx}
+\usepackage{wrapfig}
+%Graphics
+
+%Tabular
+\usepackage{array, tabularx, tabulary, booktabs}
+\usepackage{longtable}
+\usepackage{multirow}
+%Tabular
+
+%Additional
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+	{\hbox{$\matsurround=0pt #1$}}{}}
+%Additional
+
+%%% Страница
+\usepackage{extsizes} % Возможность сделать 14-й шрифт
+\usepackage{geometry} % Простой способ задавать поля
+\geometry{top=20mm}
+\geometry{bottom=20mm}
+\geometry{left=15mm}
+\geometry{right=15mm}
+%
+\usepackage{fancyhdr} % Колонтитулы
+%\pagestyle{fancy} % Полный набор колонтитулов
+\renewcommand{\headrulewidth}{0mm}  % Толщина линейки, отчеркивающей верхний колонтитул
+%\lfoot{Нижний левый}
+%\rfoot{Нижний правый}
+%\rhead{Верхний правый}
+%\chead{Верхний в центре}
+%\lhead{Верхний левый}
+% \cfoot{Нижний в центре} % По умолчанию здесь номер страницы
+
+\usepackage{setspace} % Интерлиньяж
+%\onehalfspacing % Интерлиньяж 1.5
+%\doublespacing % Интерлиньяж 2
+%\singlespacing % Интерлиньяж 1
+
+\usepackage{lastpage} % Узнать, сколько всего страниц в документе.
+
+\usepackage{soul} % Модификаторы начертания
+
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor}
+\hypersetup{				% Гиперссылки
+    unicode=true,           % русские буквы в раздела PDF
+    pdftitle={Заголовок},   % Заголовок
+    pdfauthor={Автор},      % Автор
+    pdfsubject={Тема},      % Тема
+    pdfcreator={Создатель}, % Создатель
+    pdfproducer={Производитель}, % Производитель
+    pdfkeywords={keyword1} {key2} {key3}, % Ключевые слова
+    colorlinks=true,       	% false: ссылки в рамках; true: цветные ссылки
+    linkcolor=red,          % внутренние ссылки
+    citecolor=green,        % на библиографию
+    filecolor=magenta,      % на файлы
+    urlcolor=cyan           % на URL
+}
+
+%\renewcommand{\familydefault}{\sfdefault} % Начертание шрифта
+
+
+
+%%%Библиография
+\usepackage{cite} % Работа с библиографией
+%\usepackage[superscript]{cite} % Ссылки в верхних индексах
+%\usepackage[nocompress]{cite} % 
+\usepackage{csquotes} % Еще инструменты для ссылок
+
+
+\usepackage{multicol} % Несколько колонок
+
+\usepackage{tikz} % Работа с графикой
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\usepackage{circuitikz}
+
+
+%reset equation counter after section
+\usepackage{chngcntr}
+
+\counterwithin*{equation}{section}
+\renewcommand\theequation{\arabic{equation}}
+\renewcommand\thesection{\S \arabic{section}}
+\renewcommand\thesubsection{\arabic{section}.\arabic{subsection}}
+%
+
+\newcommand{\pf}[2]{ 
+\dfrac{\partial #1}{\partial #2} 
+} 
+
+\newcommand{\df}[2]{ 
+\dfrac{d #1}{d #2} 
+} 
+
+\newcommand{\sul}[2]{ 
+\sum\limits_{#1}^{#2} 
+}
+
+%Code listings support
+\usepackage{listings}
+\lstloadlanguages{[5.2]Mathematica}
+
+\author{Орленко Елена Владимировна}
+\title{Классическая механика}
+\date{2018 год, весенний семестр}
+%\date{}							% Activate to display a given date or no date
+
+\begin{document}
+
+\makeatletter
+\@addtoreset{chapter}{part}
+\makeatother  
+
+\maketitle
+
+\newpage
+%\section{}
+%\subsection{}
+\setcounter{section}{0}
+Область рассмотрения механики - описание систем в отдаленных масштабах с точки зрения микроскопики.
+
+\textbf{Кинематика} - (?) указание траектории всех частиц системы, механическое описание этих систем, а именно: $\vec{r}_i(t), \vec{\upsilon}_i(t)$
+
+Задано: $\ddot{\vec{r}}_i(t)= f(\vec{r}_i(t), \vec{\upsilon}_i(t), t$ - система уравнений движения
+
+Задача кинематики: нахождение неизвестной системы
+
+\textbf{Материальная точка} - абстракция, которой мы можем пренебречь (формой, размерами)
+
+$\vec{\upsilon}_i=\dot{\vec{r}}_i=\frac{d}{dt}\vec{r}_i(t)$
+
+Число независимых степеней свободы не всегда совпадает с числом частиц системы.
+
+Обобщенные координаты системы: $q_1, ..., q_s$ - где $s$ - число степеней свободы.
+
+$\dot{q}_i(t)=\frac{d}{dt}q_i(t)$
+
+$q_1(t), ..., q_s(t), \dot{q}_1(t), ..., \dot{q}_s(t), t$ - полный набор значений для описания состояния системы: все обобщенные координаты и скорости.
+
+\section{Формализм Лагранжа}
+\subsection{Принцип Гамильтона (наименьшего действия)}
+
+Функция Лагранжа: $L=(q_1(t), ..., q_s(t), \dot{q}_1(t), ..., \dot{q}_s(t), t)$
+
+Действие функции Лагранжа: $S=\int\limits^{t2}_{t1}L(q_1(t), ..., q_s(t), \dot{q}_1(t), ..., \dot{q}_s(t), t)dt$. Должны быть известны начальные условия $t_1$
+
+Существует единственная истинная траектория, по которой будет происходить движение частицы.
+
+Если $L$ - истинная, то $S$ (действие) имеет экстремальное минимальное значение. $q_i(t)+\delta q_i(t)$
+
+\textbf{Вариация} функции – это небольшое изменение значения функции в точке “x”, не связанное с изменением аргумента.
+\begin{equation}
+\begin{aligned}
+&123\\
+&123
+\end{aligned}
+\end{equation}
+
+\section{Функция Лагранжа для свободного движения}
+\subsection{Инерциальные системы}
+Требования (для данного вида движения):
+\begin{enumerate}
+  \item Пространство
+  \begin{itemize}
+  \item Однородность (свойства одинаковы во всех точках пространства)
+  \item Изотропность (одинаково во всех направлениях)
+\end{itemize}
+  \item Время
+  \begin{itemize}
+  \item Однородность (тип движения не зависит от точки отсчета времени)
+  \item Изотропность (обратимость)
+\end{itemize}
+\end{enumerate}
+
+При этом $L(\vec{r}, \vec{\upsilon}, t)$:\\
+Однородность пространства: $\vec{r}=\vec{r'}+\vec{a} \Rightarrow L(\not \vec{r}, \vec{\upsilon}, t)$ - не зависит от координаты\\
+Изотропность пространства: $\Rightarrow L(|\vec{\upsilon}|, t)$\\
+Однородность времени: $\Rightarrow L(|\vec{\upsilon}|, \not t)$\\
+Изотропность времени: выполняется\\
+\\
+
+В итоге $L=L(\upsilon^2)$
+
+$0=\pf{L}{\vec{r}}=\df{}{t} \pf{L}{\vec{\upsilon}} \Rightarrow \pf{L(\upsilon^2)}{\vec{\upsilon^2}} =\vec{C}$ - градиент в поле скоростей\\
+\\
+
+$\pf{L(\upsilon^2)}{\vec{\upsilon}}=\pf{L}{\vec{\upsilon}} \pf{\upsilon^2}{\vec{\upsilon}}=\pf{L(\vec{\upsilon})}{\vec{\upsilon}}*2\vec{\upsilon}=\text{const}_t$. Скажем, что $\pf{L(\vec{\upsilon})}{\vec{\upsilon}}=const=\dfrac{m}{2}$
+
+Первый закон Ньютона (Lex Prima): существуют такие системы отсчета, в котором уравнения движения выглядят наиболее просто, то есть, свободно движущаяся частица имеет постоянную скорость: $\vec{\upsilon}=$const
+
+$\vec{\upsilon}=\vec{\upsilon ' }+\vec{u}, \vec{u} $ - скорость движения системы $K'$ относительно $K$. Если $K'$ - инерциальная, то и $K$ - инерциальная. Закон сложения скоростей (Галилея) действует только для нерелятивистских скоростей. Он также предполагает абсолютность времени (одинаковое течение во всех СО), что неверно в рамках теории относительности.
+
+\subsection{Функция Лагранжа для свободно движущейся частицы}
+Пусть одна СО движется относительно другой с малой скоростью $\vec{\delta}$: $\vec{\upsilon'}=\vec{\upsilon}+\vec{\delta}$. Тогда:
+
+$L({\upsilon'}^2)=L(\upsilon^2+2\vec{\upsilon}\vec{\delta}+\delta^2)=L({\upsilon'}^2)+2\vec{\upsilon'}\vec{\delta} \frac {\partial{L}}{\partial{\upsilon^2}}=L({\upsilon'}^2)+\frac{d}{dt}(2\vec{r'}\vec{\delta} \frac {\partial{L}}{\partial{\upsilon^2}}$.\\
+
+Если $\frac {\partial{L}}{\partial{\upsilon^2}}=const=\frac{m}{2}$, эти две функции Лагранжа $L(\upsilon^2)$ и $L({\upsilon'}^2)$ эквивалентны. $L(\upsilon^2)=\frac{m\upsilon^2}{2}$.\\
+
+Требование малости $\vec{\delta}$ необязательно: пусть $\vec{{\upsilon'}}=\vec{\upsilon}+\vec{V}$, тогда $\frac{m\upsilon^2}{2}=\frac{m{\upsilon'}^2}{2}+\frac{m\vec{\upsilon}\vec{V}}{2}+\frac{mV^2}{2}$\\
+
+\textbf{Обобщенные координаты}
+
+Система свободных невзаимодействующих частиц:
+
+$L=({\upsilon_1}^2, ..., {\upsilon_n}^2)=\sum\frac{m{\upsilon_i}^2}{2}$
+
+Пусть есть обобщенные координаты: $q_1...q_k$: можем через них выразить старые координаты $x_i=f_i(q_1, ...,  q_n) \to \dot{x}=\sum\frac{\partial f_{ik}}{\partial q_k}\dot{q_k}$
+
+Тогда $L=\sum\frac{m_i}{2} \sum\frac{\partial f_{ik}}{\partial q_k}\dot{q_k} \sum\frac{\partial f_{il}}{\partial q_l}\dot{q_l}=\sum\frac{1}{2}\dot{q_k}\dot{q_l}\sum \frac{m_i}{2} \frac{\partial f_{il}}{\partial q_k}\frac{\partial f_{ik}}{\partial q_k}=\sum\frac{a_{kl}}{2}\dot{q}_k\dot{q}_l$\\
+
+Замечание: что такое функция действия? $L=\frac{m\upsilon^2}{2}$\\
+
+$S=\int^{t2}_{t1} \frac{m\upsilon^2}{2}dt=\frac{m}{2}\int^{t2}_{t1}\left( \frac{dl}{st}\right)^2=\upsilon\frac{m}{2}\int^{t2}_{t1}\frac{dl}{dt}dl$ - проще всего двигаться прямолинейно, а не по дуге\\
+
+Длина дуги и скорость в \begin{enumerate}
+  \item декартовой системе: $(dl)^2=(dx)^2+(dy)^2+(dz)^2$
+  
+  $\upsilon^2=\upsilon_x^2+\upsilon_y^2+\upsilon_z^2$
+  
+  \item цилиндрической системе:  $(dl)^2=(dz)^2+(d\rho)^2+(\rho\dot{\varphi})^2$
+  
+  $\upsilon^2=\upsilon_z^2+(\dot{\rho})^2+(\rho\dot{\varphi})^2$
+  
+  \item сферической системе: ...
+  
+  \section{Функция Лагранжа системы взаимодействующих частиц}
+  \textbf{Движение под действием консервативной силы $\vec{F}$}
+Для свободного движения:
+
+  $\frac{d}{dt}\frac{\partial{L}}{\partial{\upsilon^2}}=\frac{\partial{L}}{\partial{\vec{r}}}$
+
+  Могут быть другие компоненты:
+  
+  $L=T+...; T=\frac{m\upsilon^2}{2}$  
+  
+Тогда     $\frac{d}{dt}\frac{\partial{T}}{\partial{\upsilon^2}}=\frac{\partial{T}}{\partial{\vec{r}}} \to \frac{d}{dt}(m\vec{\upsilon})=\frac{\partial{f(\vec{r})}}{\partial{\vec{r}}}$
+
+При этом $\frac{d}{dt}(m\vec{\upsilon})=0$   
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+

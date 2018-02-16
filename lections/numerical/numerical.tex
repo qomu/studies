@@ -1,0 +1,318 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[a4paper,12pt]{report}
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+		
+%Math packages
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+\usepackage{icomma}
+\setcounter{MaxMatrixCols}{20}
+%Math packages
+
+%SetFonts
+\usepackage{euscript}	 % Шрифт Евклид
+\usepackage{mathrsfs} % Красивый матшрифт
+\usepackage{dsfont} % Жирный шрифт для множеств чисел
+%\usepackage{wasysym} % Для всяких символов
+\usepackage{ stmaryrd } %Left \mapsto
+\usepackage[T1, T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[english, russian]{babel}
+%SetFonts
+
+%Graphics
+\usepackage{graphicx}
+\usepackage{wrapfig}
+%Graphics
+
+%Tabular
+\usepackage{array, tabularx, tabulary, booktabs}
+\usepackage{longtable}
+\usepackage{multirow}
+%Tabular
+
+%Additional
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+	{\hbox{$\matsurround=0pt #1$}}{}}
+%Additional
+
+%%% Страница
+\usepackage{extsizes} % Возможность сделать 14-й шрифт
+\usepackage{geometry} % Простой способ задавать поля
+\geometry{top=20mm}
+\geometry{bottom=20mm}
+\geometry{left=15mm}
+\geometry{right=15mm}
+%
+\usepackage{fancyhdr} % Колонтитулы
+%\pagestyle{fancy} % Полный набор колонтитулов
+\renewcommand{\headrulewidth}{0mm}  % Толщина линейки, отчеркивающей верхний колонтитул
+%\lfoot{Нижний левый}
+%\rfoot{Нижний правый}
+%\rhead{Верхний правый}
+%\chead{Верхний в центре}
+%\lhead{Верхний левый}
+% \cfoot{Нижний в центре} % По умолчанию здесь номер страницы
+
+\usepackage{setspace} % Интерлиньяж
+%\onehalfspacing % Интерлиньяж 1.5
+%\doublespacing % Интерлиньяж 2
+%\singlespacing % Интерлиньяж 1
+
+\usepackage{lastpage} % Узнать, сколько всего страниц в документе.
+
+\usepackage{soul} % Модификаторы начертания
+
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor}
+\hypersetup{				% Гиперссылки
+    unicode=true,           % русские буквы в раздела PDF
+    pdftitle={Заголовок},   % Заголовок
+    pdfauthor={Автор},      % Автор
+    pdfsubject={Тема},      % Тема
+    pdfcreator={Создатель}, % Создатель
+    pdfproducer={Производитель}, % Производитель
+    pdfkeywords={keyword1} {key2} {key3}, % Ключевые слова
+    colorlinks=true,       	% false: ссылки в рамках; true: цветные ссылки
+    linkcolor=red,          % внутренние ссылки
+    citecolor=green,        % на библиографию
+    filecolor=magenta,      % на файлы
+    urlcolor=cyan           % на URL
+}
+
+%\renewcommand{\familydefault}{\sfdefault} % Начертание шрифта
+
+
+
+%%%Библиография
+\usepackage{cite} % Работа с библиографией
+%\usepackage[superscript]{cite} % Ссылки в верхних индексах
+%\usepackage[nocompress]{cite} % 
+\usepackage{csquotes} % Еще инструменты для ссылок
+
+
+\usepackage{multicol} % Несколько колонок
+
+\usepackage{tikz} % Работа с графикой
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\usepackage{circuitikz}
+
+
+%reset equation counter after section
+\usepackage{chngcntr}
+
+\counterwithin*{equation}{section}
+\renewcommand\theequation{\arabic{equation}}
+\renewcommand\thesection{\arabic{section}.}
+%
+
+
+%Code listings support
+\usepackage{listings}
+\lstloadlanguages{[5.2]Mathematica}
+
+\author{Кудряшова Татьяна Юрьевна (а. 247, 2 уч. корп)}
+\title{Численные методы}
+\date{2018 год, весенний семестр}
+%\date{}							% Activate to display a given date or no date
+
+\begin{document}
+
+\makeatletter
+\@addtoreset{chapter}{part}
+\makeatother  
+
+\maketitle
+
+
+\newpage
+%\section{}
+%\subsection{}
+\setcounter{section}{0}
+
+\section{Математические вычисления}
+
+1. Аналитические преобразования (символьные вычисления)
+2. Численные расчеты - численные методы решения математических задач в численном виде.
+\begin{itemize}
+\item Решение систем линейных уравнений
+\item Решение систем нелинейных уравнений (включает, например, $3x-e^x=0$)
+\item Интерполирование и приближение функций
+\item Инегрирование функций
+\item Решение дифференциальных уравнений
+\item Решение задач оптимизации
+\item Решение уравнений в частных производных
+\end{itemize}
+
+\section{Вычислительный эксперимент}
+\begin{itemize}
+\item Выявление основных законов, влияющих на объект
+\item Запись этих законов в виде уравнений
+\item Численное решение задачи (алгоритм)
+\item Программирование
+\item Проверка, анализ, уточнение
+\end{itemize}
+
+\begin{center}
+\textbf{Причины возможных ошибок}
+\end{center}
+
+\begin{itemize}
+\item Неполнота знаний об объекте 
+\item  Упрощение свойств исходного объекта
+\item Погрешность метода (алгоритса)
+\end{itemize}
+
+
+\section{Способы представления чисел в памяти вычислительных устройств}
+\begin{itemize}
+\item Числа с фиксированной запятой (точкой) (стандарт $ISO/IEC\;TR\;18037$)
+\item Числа с плавающей запятой (точкой) (стандарт $IEEE\;754$)
+\end{itemize}
+
+\textbf{Числа с фиксированной запятой}
+
+Используются, когда нужна минимальная поддержка дробных чисел на целочисленном процессоре.
+Плюсы:
+\begin{itemize}
+\item ускорение вычислений, когда не нужна большая точность
+\item устойчивость к ошибкам округления
+\item меньшая стоимость
+\end{itemize}
+Минусы:
+\begin{itemize}
+\item малый диапазон вещественных чисел
+\end{itemize}
+
+10. $1*10^2+0*10^1+3*10^0+6*10^{-1}+7*10^{-2}$\\
+2. $101,011=1*2^2+0*2^1+1*2^0+0*2^{-1}+1*2^{-2}+1*2^{-3}$\\
+r. $a=+-a_n r^na_{n-1} r^{n-1}+...a_0r^0+a_{-1}r^{-1}...$, $a_k$ - разряд, $r$ - основание системы
+
+$x$ - число ($103,67$)\\
+$x'$ - целочисленное представление ($10367$)\\
+$z$ - вес младшего разряда ($-2$). Обычно фиксируется и не хранится.\\
+
+\textbf{Двоично-десятичный код}
+Каждый десятичный разряд записывается в виде 4-битного двоичного представления.
+Пример: $310_{10}=0011\;0001\;0000$
+
+Есть запрещенные состояния, которые невозможно перевести обратно в 10-систему.
+
+\textbf{Числа с плавающей запятой}
+
+Плюсы:
+
+\begin{itemize}
+\item можно использоватьбольший диапалон значений при той же относительной точности
+\item меньшая погрешность численного метода
+\end{itemize}
+
+Минусы:
+
+\begin{itemize}
+\item возможны большие ошибки округления
+\item вычислительные устройства существенно дороже
+\end{itemize}
+
+Мантисса (M) - целое число фиксированной длины, оперделяющее старшие разряды действительного числа. Всегда начинается с 1 (в двоичной системе счисления), причем эта 1 не пишется. (23 разряда в float). На знак выделяется 1 бит (0 - положительное).
+
+Порядок (E) - степень базы (двойки) старшего разряда. (8 разрядов в float)
+
+Пример: $237,342=\textit{2,37342}*\textbf{$10^2$}$\\
+$(-1)*1.M*2^E$
+
+$-12,345=-1,2345*10^1$ порядок 1\\
+$-12,345=-1,2345*10^{-3}$ - порядок 124 (124-127=-3)\\
+
+Сдвиг - возможность записывать отрицательные числа в порядок.
+
+Пример: тип float
+
+Знак $s=0$ - положительное число\\
+Порядок $E=01111100_2-127_{10}=-3$\\
+Мантисса $M=1.01$ (первая единица неявная)\\
+Число $F=1.01*E^{-3}=0,00101=2^{-3}+2^{-5}=0,15625$\\
+\\
+
+\textbf{Округление в стандарте IEEE 754}
+
+Чтобы избежать накопления ошибок округления, в ситуациях типа $N.5$ округление идет до ближайшего четного числа. $4.5 \approx 4, 3.5 \approx 4$
+
+В стандарте предусмотрены решения проблем появления большой ошибки, которые возникают при вычитании близких чисел: $x^2-y^2$ автоматически заменяется, например, на $(x-y)(x+y)$.
+
+\textbf{Представимый диапазон вещественных чисел}
+
+$M_0$ - минимальное представимое число. В Matlab $2_{-1074}=4.94...e-324, 2^{-1075}=0$. В Mathcad $M_0=2^{-49}$\\ 
+\\
+$M_\infty$ - максимальное представимое число. В Matlab $2_{1023}=8.98...E307, 2^{1024}=Inf$. В Mathcad также $M_\infty=2^1023$\\
+\\
+Машинный эпсилон $\epsilon_m$ - минимальное положительное число, которое при сложении с 1 дает результат, отличный от 1: если $\epsilon<\epsilon_m, 1+\epsilon=1$. В Matlab $1+2^{-52}=1.000..., 1+2^{-53}=1$.
+
+\textbf{Денормализованные числа (subnormal)}
+
+Пусть имеем нормализованное представление с длиной мантиссы |M|=2 бита (плюс 1 бит нормализаци), диапазон значений порядка -1<=E<=2. Можно записать 16 чисел. При этом около 0 будет "дырка" - около 0 значений будет мало.
+
+Что делать? Для обычных больших чисел можно использовать нормализованный формат (мантисса начинается с 1), для маленьких - денормализованный формат (мантисса начинается с 0). При этом Matlab работает с денормализованными числами, а Mathcad их не воспринимает (см. различия в $M_0$).
+
+Ссылка: habrahabr.ru/post/112953/
+
+\section{Влияние порядка выполнения действий}
+\begin{enumerate}
+\item Умножение\\
+Нужно следить, чтобы результаты не выходили за $[M_0, M_\infty], M_0=2^{-u},  M_0=2^{u}$\\
+$x_1=2^{u/2}, x_2=2^{u/8}, x_3=2^{3u/4}, x_4=2^{-u/2}, x_5=2^{-3u/4}$\\
+
+$x_1x_2x_3=2^{11u/8}>M_\infty$\\
+$x_4x_5=2^{-5u/4}<M_0$\\
+$x_1x_2x_3=2^{11u/8}>M_\infty$\\
+
+\item Сложение\\
+При сложении больших чисел с малыми точность может теряться: $10^20+1-10^20=0$
+
+Поэтому сначала складываем малые значения, потом прибавляем большие. Если требуется сложить числа в массиве, его нужно сначала отсортировать.
+\end{enumerate}
+
+\section{Накопление погрешности округления}
+
+$t$ - число разрядов мантиссы
+
+$a$ - точное число
+
+$\tilde{a}$ - представимое число
+
+Тогда $\frac{|a-\tilde{a}|}{|a|}\leqslant2^{-t}$ - происходит округление.
+
+$fl(a \bigoplus b)=(a \bigoplus b)(1+\epsilon), \epsilon \leqslant 2^{-t}$ - ошибка действия
+
+Пример:
+
+$z=a+b+c$\\
+
+$z_1=fl(a+b)(1+\epsilon_1)$\\
+
+$\tilde{z}=fl(z_1+c)(1+\epsilon_2)=((y_1+y_2)(1+\epsilon_1)+y_3)(1+\epsilon_2)=(y_1+y_2)(1+\epsilon_1)(1+\epsilon_2)+y_3(1+\epsilon_2)$\\
+
+При этом $\tilde{y_1}=y_1(1+\epsilon_1)(1+\epsilon_2), y_2=y_2(1+\epsilon_1)(1+\epsilon_2), y_3=y_3(1+\epsilon_2)$\\
+
+То есть $(y_1+y_2)+y_3 \not = y_1+(y_2+y_3)$
+
+Выводы
+\begin{enumerate}
+  \item Погрешности вычислений могут накапливаться
+  \item Математические законы могут нарушаться
+  \item Нельзя рассчитывать на точное равенство
+\end{enumerate}
+
+\section{Плохо обусловленные задачи}
+
+
+to be continued...
+
+
+
+\end{document}
+
